@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+    frontend:
+        container_name: go_map_ui
+        build:
+            context: ./ui
+            dockerfile: Dockerfile
+        ports:      
+            - "3000:3000"
+        volumes:
+            - ./ui:/usr/src/app
+        
+    backend:
+        container_name: go_map
+        build:
+            context: ./app
+            dockerfile: Dockerfile
