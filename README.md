@@ -1,7 +1,9 @@
-#Build docker image for app:
+GO MAP Web Server
+
+# Build docker image for app:
 docker build ./app
 docker build --no-cache -t gomap ./app
 
 
-#Run
+# Run
 docker run gomap
