@@ -1,7 +1,7 @@
-Build docker image:
-# docker build .
-# docker build --no-cache -t gomap .
+#Build docker image for app:
+docker build ./app
+docker build --no-cache -t gomap ./app
 
 
-Run
-# docker run gomap
+#Run
+docker run gomap
