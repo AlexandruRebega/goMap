@@ -12,3 +12,4 @@ docker-compose build --no-cache
 # Run
 docker run gomap
 docker-compose up
+docker run -p 8080:8080 gomap .

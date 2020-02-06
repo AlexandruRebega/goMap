@@ -28,9 +28,6 @@ COPY . .
 
 # Fetch dependencies.
 
-# Using go get.
-# RUN go get -d -v
-
 # Using go mod.
 RUN go mod download
 RUN go mod verify
