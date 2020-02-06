@@ -23,17 +23,17 @@ RUN adduser \
 
 
 
-WORKDIR $GOPATH/src/goMap
+WORKDIR $GOPATH/src/goMap/app
 COPY . .
 
 # Fetch dependencies.
 
 # Using go get.
-RUN go get -d -v
+# RUN go get -d -v
 
 # Using go mod.
-# RUN go mod download
-# RUN go mod verify
+RUN go mod download
+RUN go mod verify
 
 # Build the binary.
 RUN go build -o /go/bin/hello
@@ -56,6 +56,9 @@ COPY --from=builder /go/bin/hello /go/bin/hello
 
 # Use an unprivileged user.
 USER appuser:appuser
+
+# TODO: REMOVE EXPOSED PORT - JUST FOR DEV
+EXPOSE 8080
 
 # Run the hello binary.
 ENTRYPOINT ["/go/bin/hello"]
