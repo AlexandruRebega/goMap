@@ -32,10 +32,13 @@ COPY . .
 RUN go mod download
 RUN go mod verify
 
+ENV CGO_ENABLED=0
+
 # Build the binary.
 RUN go build -o /go/bin/hello
-# RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o /go/bin/hello
 
+#RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o /go/bin/hello
+#RUN CGO_ENABLED=0 go build -a -ldflags '-extldflags "-static"' /go/bin/hello
 
 ############################
 # STEP 2 build a small image
